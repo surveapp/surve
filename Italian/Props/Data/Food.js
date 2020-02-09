@@ -1,11 +1,11 @@
-import {ScrollView, StyleSheet, Text, View} from "react-native";
+import {ScrollView, StyleSheet, Text, View, Image} from "react-native";
 import React from "react";
 
 let Food = (props) => {
     return (
         <View>
         <View style={styles.itemContainer}>
-            <Text>{props.imageBruh}</Text>
+            <Image source = {props.imageBruh}/>
         </View>
         <View style={styles.itemContainerFont}>
             <Text>{props.food}</Text>

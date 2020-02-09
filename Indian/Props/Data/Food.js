@@ -1,10 +1,11 @@
-import React from "react"
-import {StyleSheet, Text, View} from "react-native";
-let Shop = (props) => {
+import {ScrollView, StyleSheet, Text, View, Image} from "react-native";
+import React from "react";
+
+let Food = (props) => {
     return (
         <View>
             <View style={styles.itemContainer}>
-                <Text>{props.imageBre}</Text>
+                <Image style={styles.imageSize} source = {props.imageBruh}/>
             </View>
             <View style={styles.itemContainerFont}>
                 <Text>{props.food}</Text>
@@ -15,13 +16,18 @@ let Shop = (props) => {
 };
 
 const styles = StyleSheet.create({
+        imageSize:{
+            height: 200,
+            width: 200,
+            resizeMode: "contain"
+        },
         itemContainer: {
             borderRadius: 15,
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "#eeeeee",
             width: 250,
-            height: 250
+            height: 250,
         },
         itemContainerFont: {
             marginTop: 20,
@@ -32,4 +38,4 @@ const styles = StyleSheet.create({
     }
 );
 
-export default Shop;
+export default Food;

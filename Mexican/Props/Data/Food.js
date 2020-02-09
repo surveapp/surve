@@ -1,13 +1,14 @@
-import {ScrollView, StyleSheet, Text, View} from "react-native";
+import {ScrollView, StyleSheet, Text, View, Image} from "react-native";
 import React from "react";
 
-let Service = (props) => {
+let Food = (props) => {
     return (
         <View>
             <View style={styles.itemContainer}>
-                <Text>{props.imageBre}</Text>
+                <Image style={styles.imageSize} source = {props.imageBruh}/>
             </View>
             <View style={styles.itemContainerFont}>
+                <Text>{props.food}</Text>
                 <Text>{props.price}</Text>
             </View>
         </View>
@@ -23,6 +24,11 @@ const styles = StyleSheet.create({
             width: 250,
             height: 250
         },
+    imageSize:{
+        height: 200,
+        width: 200,
+        resizeMode: "contain"
+    },
         itemContainerFont: {
             marginTop: 20,
             marginBottom: 20,
@@ -32,4 +38,4 @@ const styles = StyleSheet.create({
     }
 );
 
-export default Service;
+export default Food;

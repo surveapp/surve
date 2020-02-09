@@ -1,44 +1,39 @@
-import {ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {LinearGradient} from "expo-linear-gradient";
-import Shop from "./Shop"
 import React from "react";
-
-let ChickenShopProp = (props) => {
+import {Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView} from "react-native";
+import Service from "./Data/Service"
+import {LinearGradient} from "expo-linear-gradient";
+let ChineseServiceProp = (props) => {
     return (
         <View>
-            <LinearGradient colors={["#FFA439","#FF5353"]} start={[0, 1]} end={[1, 0]} locations={[0.6, 2]}>
+            <LinearGradient colors={["#3272EE", "#A3D8E9"]} start={[0, 1]} end={[1, 0]} locations={[0.6, 2]}>
                 <View style={styles.arrow}>
                     <TouchableOpacity onPress={() => props.history.push(props.menu)}>
-                        <Text style={styles.fontColor}>{props.backTo}</Text>
+                        <Image style={styles.arrowImage} source = {require("../../Images/backArrow.png")}/>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.shopThing}>
+                    <TouchableOpacity onPress={() => props.history.push(props.shopNav)}>
                         <Text style={styles.fontColorShop}>{props.shop}</Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.imageThing}>
-                    <TouchableOpacity onPress={() => props.history.push(props.menu)}>
-                        <Text style={styles.fontColor}>{props.photo}</Text>
-                    </TouchableOpacity>
+                    <Image source={require('../../Images/Noodles.png')}/>
                 </View>
-                <View>
-                    <TouchableOpacity onPress={() => props.history.push(props.foodMenu)}>
+                <TouchableOpacity onPress={() => props.history.push(props.service)}>
+                    <View>
                         <Text style={styles.fontContainer}>The Menu</Text>
-                    </TouchableOpacity>
-                </View>
+                    </View>
+                </TouchableOpacity>
                 <View>
-                    <TouchableOpacity onPress={() => props.history.push(props.service)}>
-                        <Text style={styles.fontContainer2}>Survices</Text>
-                    </TouchableOpacity>
+                    <Text style={styles.fontContainer2}>Survices</Text>
                 </View>
                 <View style={styles.subContainer}>
                     <ScrollView>
-                        <Shop imageBre = "Bruh" price = "price" food = "item"/>
-                        <Shop imageBre = "Bruh" price = "price" food = "item"/>
-                        <Shop imageBre = "Bruh" price = "price" food = "item"/>
-                        <Shop imageBre = "Bruh" price = "price" food = "item"/>
-                        <Shop imageBre = "Bruh" price = "price" food = "item"/>
-                        <Shop imageBre = "Bruh" price = "price" food = "item"/>
-                        <Shop imageBre = "Bruh" price = "price" food = "item"/>
+                        <Service imageBre = {require("../../Images/flame.png")} price = "$31.99" color = "#FB8EE3" food = "Romantic Pack"/>
+                        <Service imageBre = {require("../../Images/birthday.png")} price = "$45.99" color = "#F0DA14" food = "Birthday Pack"/>
+                        <Service imageBre = {require("../../Images/holiday.png")} price = "$1.00" color = "#23B856" food = "Holiday Pack"/>
+                        <View style={styles.ScrollTopContainer}>
+                        </View>
                         <View style={styles.ScrollTopContainer}>
                         </View>
                         <View style={styles.ScrollTopContainer}>
@@ -71,13 +66,13 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginBottom: 20,
         width: 250,
-        height: 250,
+        height: 190,
         backgroundColor: "transparent"
     },
     fontContainer: {
         fontWeight: "100",
         color: "white",
-        fontSize: 18,
+        fontSize: 20,
         marginTop: 400,
         marginRight: 300,
         transform: [
@@ -86,9 +81,9 @@ const styles = StyleSheet.create({
     },
 
     fontContainer2: {
-        fontWeight:"100",
-        color:"white",
-        fontSize: 18,
+        fontWeight:"700",
+        color:"black",
+        fontSize: 22,
         marginTop: 100,
         marginRight: 300,
         transform: [
@@ -101,12 +96,23 @@ const styles = StyleSheet.create({
     arrow: {
         position: "absolute",
         left: 40,
-        top: 40
+        top: 40,
+        height: 50,
+        width: 50,
+        resizeMode: "contain"
+    },
+    arrowImage: {
+        height: 50,
+        width: 50,
+        resizeMode: "contain"
     },
     imageThing: {
         position: "absolute",
-        left: "50%",
-        top: 150
+        left: 150,
+        height: 100,
+        width: 100,
+        top: 100,
+        resizeMode: "contain"
     },
     shopThing: {
         position: "absolute",
@@ -114,10 +120,10 @@ const styles = StyleSheet.create({
         left: 20
     },
     fontColorShop: {
-        fontWeight:"700",
-        fontSize: 28,
+        fontSize: 24,
         color: "white"
     },
 });
 
-export default ChickenShopProp;
+
+export default ChineseServiceProp;

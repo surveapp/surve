@@ -26,9 +26,14 @@ export default function MenuTry({history}) {
             </View>
             <View style={styles.bottomContainer}>
                 <ScrollView horizontal={true} pagingEnabled={true}>
-                    <Card gradientColor = {["#FFA439","#FF5353"]} style = "styles.swipeContainer" history = {history} food = "Chicken" name = "Duck"/>
-                    <Card gradientColor = {["#FFA439","#FF5353"]} style = "styles.swipeContainer" history = {history} food = "Chicken" name = "Bruh"/>
-                    <Card gradientColor = {["#FFA439","#FF5353"]} style = "styles.swipeContainer" history = {history} food = "Chicken" name = "Chicken"/>
+                    <Card gradientColor={["#3272EE", "#A3D8E9"]} style="styles.swipeContainer" food="Chinese" name="Cho's Cuisine" history = {history}
+                          imageChoice = {require("./Images/Noodles.png")}/>
+                    <Card gradientColor={["#32B589", "#84CBA0"]} style="styles.swipeContainer" food="Italian" name="Pastarita" history = {history}
+                          imageChoice = {require("./Images/Spaghetti.png")}/>
+                    <Card gradientColor={["#FFA439", "#FF5353"]} style="styles.swipeContainer" food="Indian" name="Curry & Things" history = {history}
+                          imageChoice = {require("./Images/IndianChicken.png")}/>
+                    <Card gradientColor={["#A642D6", "#ED5EFA"]} style="styles.swipeContainer" food="Mexican" name="Paco's Tacos" history = {history}
+                          imageChoice = {require("./Images/Taco.png")}/>
                 </ScrollView>
             </View>
         </View>

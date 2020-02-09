@@ -1,51 +1,45 @@
 import {Alert, Image, StyleSheet, Text, TouchableOpacity, View, ScrollView} from "react-native";
 import React from "react";
-import axios from "axios";
+import fetch from "node-fetch"
 import Card from "./Card"
-export default class MenuFeatured extends React.Component {
-    constructor(props) {
-        super(props);
 
-    }
-
-    componentDidMount() {
-        axios.get("https://surve.savagelabs.net/static/location")
-            .then(Alert.alert)
-            .catch(Alert.alert)
-    };
-    render(){
-    return(
-        <View style={styles.mainContainer}>
-            <View style={styles.topContainer}>
-                <View style={styles.hamburgerContainer}>
-                    <TouchableOpacity onPress={() =>  this.props.history.push("/")}>
-                        <Image style={styles.image} source={require("./Images/hamburger.png")}/>
-                    </TouchableOpacity>
+export default function MenuFeatured({history}){
+        return (
+            <View style={styles.mainContainer}>
+                <View style={styles.topContainer}>
+                    <View style={styles.hamburgerContainer}>
+                        <TouchableOpacity onPress={() => history.push("/")}>
+                            <Image style={styles.image} source={require("./Images/hamburger.png")}/>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.imageContainer}>
+                        <Image style={styles.image1} source={require("./Images/logoBruh.png")}/>
+                        <Text style={styles.font1}>SURVE</Text>
+                    </View>
+                    <View style={styles.textContainer}>
+                        <TouchableOpacity onPress={() => history.push("/menu")}>
+                            <Text style={styles.font}>Favorite</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => history.push("/menuTry")}>
+                            <Text style={styles.font}>Try</Text>
+                        </TouchableOpacity>
+                        <Text style={styles.fontSpecial}>Featured</Text>
+                    </View>
                 </View>
-                <View style={styles.imageContainer}>
-                    <Image style={styles.image1} source={require("./Images/logoBruh.png")}/>
-                    <Text style={styles.font1}>SURVE</Text>
-                </View>
-                <View style={styles.textContainer}>
-                    <TouchableOpacity onPress={() =>  this.props.history.push("/menu")}>
-                        <Text style={styles.font}>Favorite</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() =>  this.props.history.push("/menuTry")}>
-                        <Text style={styles.font}>Try</Text>
-                    </TouchableOpacity>
-                    <Text style={styles.fontSpecial}>Featured</Text>
+                <View style={styles.bottomContainer}>
+                    <ScrollView horizontal={true} pagingEnabled={true}>
+                        <Card gradientColor={["#FFA439", "#FF5353"]} style="styles.swipeContainer" food="Indian" name="Nan I" history = {history}
+                              imageChoice = {require("./Images/IndianChicken.png")}/>
+                        <Card gradientColor={["#A642D6", "#ED5EFA"]} style="styles.swipeContainer" food="Mexican" name="Loco Chocos" history = {history}
+                              imageChoice = {require("./Images/Taco.png")}/>
+                        <Card gradientColor={["#3272EE", "#A3D8E9"]} style="styles.swipeContainer" food="Chinese" name="Yu Wang" history = {history}
+                              imageChoice = {require("./Images/Noodles.png")}/>
+                        <Card gradientColor={["#32B589", "#84CBA0"]} style="styles.swipeContainer" food="Italian" name="Chef Boy Hardee's" history = {history}
+                              imageChoice = {require("./Images/Spaghetti.png")}/>
+                    </ScrollView>
                 </View>
             </View>
-            <View style={styles.bottomContainer}>
-                <ScrollView horizontal={true} pagingEnabled={true}>
-                    <Card gradientColor = {["#FFA439","#FF5353"]} style = "styles.swipeContainer" history = {this.props.history} food = "Chicken" name = "Duck"/>
-                    <Card gradientColor = {["#FFA439","#FF5353"]} style = "styles.swipeContainer" history = {this.props.history} food = "Chicken" name = "Chicken"/>
-                    <Card gradientColor = {["#FFA439","#FF5353"]} style = "styles.swipeContainer" history = {this.props.history} food = "Chicken" name = "Bruh"/>
-                </ScrollView>
-            </View>
-        </View>
-    )
-    }
+        )
 }
 
 const styles = StyleSheet.create({
@@ -70,13 +64,13 @@ const styles = StyleSheet.create({
         backgroundColor: "white"
     },
     font: {
-        paddingTop:80,
+        paddingTop: 80,
         fontSize: 25,
         fontFamily: "Roboto"
         //Change Font Family to Avenir
     },
     fontSpecial: {
-        paddingTop:80,
+        paddingTop: 80,
         borderBottomWidth: 2,
         fontSize: 25,
         fontFamily: "Roboto"
@@ -90,7 +84,8 @@ const styles = StyleSheet.create({
     image: {
         width: 40,
         height: 40,
-        resizeMode: "contain"},
+        resizeMode: "contain"
+    },
     hamburgerContainer: {
         paddingTop: 20,
         paddingLeft: 20,
